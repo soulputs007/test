@@ -2,7 +2,7 @@ package com.knoldus
 
 import com.couchbase.spark._
 import com.couchbase.spark.sql._
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.spark.sql.functions._
 
 object Migrator {
@@ -32,7 +32,7 @@ object Migrator {
 
     val rddToBeWritten = cassandraRDD.withColumn("META_ID", monotonically_increasing_id)
 
-    rddToBeWritten.toDF().write.couchbase()
+    rddToBeWritten.toDF().write.mode(SaveMode.Overwrite).couchbase()
   }
 
 }
