@@ -1,4 +1,4 @@
-# Spark Cassandra to couchbase migration
+# Spark Cassandra to couchbase 
 
 This Application help us migrate cassandra data to couchbase 
 
